@@ -1,5 +1,6 @@
 // Custom Hook
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../constants";
 
 
 const useRestaurant = (resId) => {
@@ -10,7 +11,7 @@ const useRestaurant = (resId) => {
     }, [])
 
     async function getRestaurentInfo(){
-        const data = await fetch(FETCH_MENU_URL+resId);
+        const data = await fetch(BASE_URL + 'food/' +resId);
         const json = await data.json();
         setRestaurent(json.data);
     }

@@ -1,16 +1,16 @@
-import React, {lazy, Suspense} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Error from './components/Error';
-import Contact from './components/Contact'
 import Body from './components/Body';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import RestaurentMenu from './components/RestaurentDetails';
 import SignUp from './components/Signup'
 import SignIn from './components/Signin'
-
+import Cart from './components/Cart'
+import {UserProvider} from './utils/UserContext'
 
 const appRouter = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const appRouter = createBrowserRouter([
         element: <Body />
       },
       {
-        path: '/contact',
-        element: <Contact />
+        path: '/cart',
+        element: <Cart />
       },
       {
         path: '/restaurent/:id',
@@ -45,7 +45,9 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={appRouter} />
+    <UserProvider>
+      <RouterProvider router={appRouter} />
+    </UserProvider>
   </React.StrictMode>
 );
 

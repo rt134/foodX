@@ -11,16 +11,13 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState()
 
   useEffect(() => {
-    getRestaurentData()
+    fetch(BASE_URL+"restaurents/")
+    .then((res) => res.json())
+    .then((data) => {
+      setRestaurents(data);
+      setFilteredRestaurants(data);
+    })
   }, [])
-
-  async function getRestaurentData(){
-    const data = await fetch(BASE_URL+"restaurents/");
-    const json = await data.json();
-    console.log(json)
-    setRestaurents(json);
-    setFilteredRestaurants(json);
-  }
 
   return restaurents?.length === 0 ? <Shimmer /> : (
     <>
