@@ -36,7 +36,6 @@ function Signin() {
 
       if (response.status === 200) {
         const data = await response.json();
-        console.log(data)
         const userData = {
           "token" : data.token,
           "email" : data.email,

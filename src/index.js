@@ -10,6 +10,7 @@ import RestaurentMenu from './components/RestaurentDetails';
 import SignUp from './components/Signup'
 import SignIn from './components/Signin'
 import Cart from './components/Cart'
+import Orders from './components/Orders'
 import {UserProvider} from './utils/UserContext'
 
 const appRouter = createBrowserRouter([
@@ -25,6 +26,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />
+      },
+      {
+        path: '/orders',
+        element: <Orders />
       },
       {
         path: '/restaurent/:id',

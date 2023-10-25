@@ -9,8 +9,13 @@ const Header = () => {
         <div className="nav-items p-2">
           <ul className="flex py-10 justify-center">
             <Link to='/'><li className="px-2">Home</li></Link>
+            <Link to ='/orders'><li className="px-2">Orders</li></Link>
             <Link to='/cart'><li className="px-2">Cart</li></Link>
-            {user ? <Link onClick={logout}>Signout</Link> : <Link to='/signin'>Signin</Link>}
+            {
+              user ? 
+              <Link onClick={logout}><li className="px-2">Signout</li></Link> 
+              : 
+              <Link to='/signin'><li className="px-2">Signin</li></Link>}
           </ul>
         </div>
       </div>
